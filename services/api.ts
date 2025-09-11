@@ -14,10 +14,11 @@ export const fetchMovies = async ({ query }: { query: string}) => {
 
     const response = await fetch(endpoint, {
         method: 'GET',
-        headers: TMDB_CONFIG.headers
+        headers: TMDB_CONFIG.headers,
     });
 
     if(!response.ok) {
+        // @ts-ignore
         throw new Error('Failed to fetch movies', response.statusText);
     }
 
